@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/profile', function () {
+    return view('profiles.profile');
+});
+Route::get('/task', function () {
+    return view('tasks.index');
+});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'TaskController@index');
+Route::get('admin_area', ['middleware' => 'admin', function () {
+    //
+}]);
