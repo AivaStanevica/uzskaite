@@ -16,9 +16,11 @@ class CreateTasksTable extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
             $table->string('unit');
-            $table->string('work');
-            $table->enum('status', ['Gatavs', 'Procesa', 'Atcelts', 'Problemas']);
+            $table->string('task');
+            $table->string('status');
             $table->date('date');
+            $table->string('mainOrg');
+            $table->string('helper');
             $table->timestamps();
         });
     }

@@ -21,8 +21,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $request->user()->authorizeRoles(['biedrs', 'valde']);
+        return view('profiles.profile');
+    }
+    public function registred(Request $request){
+        $request->user()->authorizeRoles('biedrs');
+        return view('delete.biedrs');
     }
 }
