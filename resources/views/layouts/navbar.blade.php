@@ -29,6 +29,15 @@
                 @guest
                 <li><a href="{{ route('login') }}">Login</a></li>
                 <li><a href="{{ route('register') }}">Register</a></li>
+                <li class =dropdown-menu-right>
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Valoda
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">latviešuL</a></li>
+                        <li><a href="#">angļu</a></li>
+                    </ul>
+
+                </li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">

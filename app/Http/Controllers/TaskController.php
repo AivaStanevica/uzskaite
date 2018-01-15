@@ -8,12 +8,22 @@ use App\Task;
 
 class TaskController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index']);
+    }
     public function index(){
 
         $tasks = Task::all();
 
         return view('tasks.index', compact('tasks'));
 
+    }
+
+    public function show(Task $task){
+
+        return view('tasks.show' ,compact('task'));
+;
     }
 
     public function store(){

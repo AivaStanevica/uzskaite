@@ -7,6 +7,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
     public function roles()
     {
         return $this->belongsToMany(Role::class);
@@ -41,6 +44,7 @@ class User extends Authenticatable
         return null !== $this->roles()->where('name', $role)->first();
 
     }
+
 
 
 

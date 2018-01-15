@@ -44,8 +44,20 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @guest
-                    <li><a href="{{ route('login') }}">Login</a></li>
-                    <li><a href="{{ route('register') }}">Register</a></li>
+                    <li><a href="{{ route('login') }}">{{__('nav.login')}}</a></li>
+                    <li><a href="{{ route('register') }}">{{__('nav.register')}}</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false" aria-haspopup="true">
+                           Valoda <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">latviešu</a></li>
+                            <li><a href="#">angļu</a></li>
+
+
+                        </ul>
+                    </li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -56,14 +68,14 @@
                             <ul class="dropdown-menu">
                                 <li><a href="/tasks">Uzdevumi</a></li>
                                 <li><a href="/profile">Profils</a></li>
-                                <li><a href="/admins">Admins</a></li>
-                                <li><a href="/valde">Valde</a></li>
-                                <li><a href="/biedrs">Biedrs</a></li>
+                                @if(Auth::user()->hasrole('Admins'))
+                                    <li><a href="/admins">Admins</a></li>
+                                @endif
                                 <li>
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Logout
+                                        Iziet
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
