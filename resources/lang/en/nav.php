@@ -3,5 +3,6 @@ return [
     'welcome'=>'Hello!',
     'login'=>'Login',
     'register'=>'Register',
-    'todo'=>'To do list'
+    'todo'=>'To do list',
+    'edit'=>'Edit post'
 ];

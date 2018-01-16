@@ -30,8 +30,10 @@
                                             class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li><a href="#">Labot</a></li>
-                                    <li><a href="#">Dzēst</a></li>
+                                    <li><a href="/tasks/{{$task->id}}/edit" class="btn">Labot</a></li>
+                                    {!! Form::open(['method' => 'DELETE','route' => ['tasks.destroy', $task->id],'style'=>'display:inline']) !!}
+                                    {!! Form::submit('Delete', ['class' => 'btn']) !!}
+                                    {!! Form::close() !!}
                                 </ul>
                             </div>
                         </td>

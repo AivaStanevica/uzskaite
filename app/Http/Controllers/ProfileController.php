@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class ProfileController extends Controller
 {
@@ -12,6 +13,15 @@ class ProfileController extends Controller
         $this->middleware('auth');
     }
      public function index(){
-        return view('profiles.profile');
+
+        $profiles =  User::all();
+        return view('profiles.profile', compact('profiles'));
+
      }
+
+     public function store(){
+
+
+     }
+
 }

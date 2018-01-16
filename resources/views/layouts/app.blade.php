@@ -46,17 +46,11 @@
                     @guest
                     <li><a href="{{ route('login') }}">{{__('nav.login')}}</a></li>
                     <li><a href="{{ route('register') }}">{{__('nav.register')}}</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-expanded="false" aria-haspopup="true">
-                           Valoda <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">latviešu</a></li>
-                            <li><a href="#">angļu</a></li>
+                    <li><form>
+                                    <input class="btn btn-xs btn-default" type="button" value="lv">
+                                    <input class="btn btn-xs btn-default" type="submit" value="en">
+                            </form>
 
-
-                        </ul>
                     </li>
                     @else
                         <li class="dropdown">

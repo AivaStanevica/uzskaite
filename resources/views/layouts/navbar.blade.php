@@ -29,14 +29,10 @@
                 @guest
                 <li><a href="{{ route('login') }}">Login</a></li>
                 <li><a href="{{ route('register') }}">Register</a></li>
-                <li class =dropdown-menu-right>
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Valoda
-                        <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">latviešuL</a></li>
-                        <li><a href="#">angļu</a></li>
-                    </ul>
-
+                <li><form>
+                        <input class="btn btn-default" type="button" value="Input">
+                        <input class="btn btn-default" type="submit" value="Submit">
+                    </form>
                 </li>
                 @else
                     <li class="dropdown">

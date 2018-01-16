@@ -25,6 +25,14 @@ class TaskController extends Controller
         return view('tasks.show' ,compact('task'));
 ;
     }
+    public function edit($id){
+        if($user->hasrole('Admins')){
+        $task = Task::find($id);
+
+        return view('tasks.edit',compact('task'));
+    }
+        else return view('tasks.index', compact('tasks'));
+    }
 
     public function store(){
 
@@ -39,8 +47,25 @@ class TaskController extends Controller
         Task::create(request(['task','unit','status','date','mainOrg','helper']));
 
     return redirect('/tasks');
+    }
 
+    public function update(Request $request, $id){
+        $this->validate(request(),[
+            'task' => 'required|max:100',
+            'unit' => 'required',
+            'status' => 'required',
+            'date' => 'required',
+            'mainOrg' => 'required',
+            'helper'
+        ]);
 
+        Task::find($id)->update($request->all());
+        return redirect('/tasks');
+    }
+    public function destroy($id)
+    {
+        Task::find($id)->delete();
+        return redirect()->route('tasks.index');
     }
 }
 
