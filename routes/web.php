@@ -11,8 +11,11 @@
 |
 */
 
-
 Route::get('/', 'TaskController@index');
+Route::post('/language', array(
+    'Middleware'=>'LanguageSwitch',
+    'uses'=>'LanguageController@index'
+));
 Route::get('/profile', 'ProfileController@index');
 Route::get('/profile/{profile}', 'ProfileController@index');
 Route::get('/tasks', 'TaskController@index');
@@ -26,8 +29,12 @@ Route::resource('tasks','TaskController');
 
 Auth::routes();
 
+Route::get('/admins', function(){
+    return view('profiles.admins');
+});
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', 'TaskController@index');
+
 Route::get('admin_area', ['middleware' => 'admin', function () {
     //
 }]);

@@ -46,10 +46,14 @@
                     @guest
                     <li><a href="{{ route('login') }}">{{__('nav.login')}}</a></li>
                     <li><a href="{{ route('register') }}">{{__('nav.register')}}</a></li>
-                    <li><form>
-                                    <input class="btn btn-xs btn-default" type="button" value="lv">
-                                    <input class="btn btn-xs btn-default" type="submit" value="en">
-                            </form>
+                    <li><form action="language" method="post">
+                            <select name="locale">
+                                <option value="lv" {{ App::getLocale() == 'lv' ? ' selected' : '' }}>latviešu</option>
+                                <option value="en" {{ App::getLocale() == 'en' ? ' selected' : '' }}>English</option>
+                            </select>
+                            {{csrf_field()}}
+                            <input type="submit" value="Mainīt">
+                        </form>
 
                     </li>
                     @else

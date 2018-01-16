@@ -14,7 +14,7 @@ class TaskController extends Controller
     }
     public function index(){
 
-        $tasks = Task::all();
+        $tasks = Task::latest()->get();
 
         return view('tasks.index', compact('tasks'));
 
@@ -26,12 +26,10 @@ class TaskController extends Controller
 ;
     }
     public function edit($id){
-        if($user->hasrole('Admins')){
         $task = Task::find($id);
 
         return view('tasks.edit',compact('task'));
-    }
-        else return view('tasks.index', compact('tasks'));
+
     }
 
     public function store(){
@@ -56,7 +54,7 @@ class TaskController extends Controller
             'status' => 'required',
             'date' => 'required',
             'mainOrg' => 'required',
-            'helper'
+
         ]);
 
         Task::find($id)->update($request->all());

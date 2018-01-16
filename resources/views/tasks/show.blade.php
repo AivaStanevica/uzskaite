@@ -5,6 +5,7 @@
         <div class="panel panel-default">
             <div class="panel-heading"><h1>{{$task->task}}</h1></div>
             <div class="panel-body">
+
                 <table class="table table-striped table-hover">
                     <thead>
                     <tr>
@@ -24,6 +25,7 @@
                         <td>{{$task->status}}</td>
                         <td>{{$task->date}}</td>
                         <td>
+                            @if (Auth::user()->hasrole('Admins')||Auth::user()->hasrole('Valde'))
                             <div class="dropdown">
                                 <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span
@@ -36,6 +38,7 @@
                                     {!! Form::close() !!}
                                 </ul>
                             </div>
+                                @endif
                         </td>
                     </tr>
 
@@ -66,7 +69,7 @@
                     </div>
                 </form>
 
-                <button><a href="{{ url('/') }}">Atpakaļ</a></button>
+                <a href="{{ URL::previous() }}"><button class="btn">Atpakaļ</button></a>
             </div>
         </div>
     </div>

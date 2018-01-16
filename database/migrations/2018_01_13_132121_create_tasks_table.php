@@ -20,7 +20,7 @@ class CreateTasksTable extends Migration
             $table->string('status');
             $table->date('date');
             $table->string('mainOrg');
-            $table->string('helper');
+            $table->string('helper')->nullable()->default('nav');
             $table->timestamps();
         });
     }

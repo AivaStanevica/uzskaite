@@ -52,6 +52,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'code'=>'required|string|max:25',
         ]);
     }
 
@@ -69,7 +70,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'code'=>$data['code'],
         ]);
-        $user->roles()->attach(Roles::where('name', 'biedrs')->first());
+        $user->roles()->attach(Role::where('name', 'biedrs')->first());
         return $user;
     }
 }
