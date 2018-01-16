@@ -62,9 +62,9 @@
                             <ul class="dropdown-menu">
                                 <li><a href="/tasks">Uzdevumi</a></li>
                                 <li><a href="/profile">Profils</a></li>
-                                @if(Auth::user()->hasrole('Admins'))
+                                @role('Admins')
                                     <li><a href="/admins">Admins</a></li>
-                                @endif
+                                @endrole
                                 <li>
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

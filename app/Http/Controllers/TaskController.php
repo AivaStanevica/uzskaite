@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Task;
+use Auth;
+use Session;
 
 
 class TaskController extends Controller
@@ -26,13 +28,12 @@ class TaskController extends Controller
 ;
     }
     public function edit($id){
-        if($user->hasrole('Admins')){
+
         $task = Task::find($id);
 
         return view('tasks.edit',compact('task'));
-    }
-        else return view('tasks.index', compact('tasks'));
-    }
+
+        }
 
     public function store(){
 
