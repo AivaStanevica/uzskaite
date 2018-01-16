@@ -18,6 +18,7 @@ Route::post('/language', array(
 ));
 Route::get('/profile', 'ProfileController@index');
 Route::get('/profile/{profile}', 'ProfileController@index');
+Route::post('/profile','ProfileController@updateAvatar');
 Route::get('/tasks', 'TaskController@index');
 Route::post('/tasks','TaskController@store');
 Route::get('/tasks/{task}', 'TaskController@show');
